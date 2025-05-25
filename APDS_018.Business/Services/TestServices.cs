@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace APDS_018.Business.Services
 {
-    public class TestService
+    public class TestServices
     {
         private readonly APDSContextDb _context;
 
-        public TestService(APDSContextDb context)
+        public TestServices(APDSContextDb context)
         {
             _context = context; 
         }
@@ -43,5 +43,6 @@ namespace APDS_018.Business.Services
                 _context.SaveChanges();
             }
         }
+
     }
 }

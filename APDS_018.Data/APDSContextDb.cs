@@ -1,14 +1,19 @@
 ﻿
 using APDS_018.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
-
+using Microsoft.EntityFrameworkCore.Sqlite;
 using System.Data.Common;
+using Microsoft.Extensions.Logging;
 
 namespace APDS_018.Data
 {
     public class APDSContextDb : DbContext
     {
+        public APDSContextDb() { }
+        public APDSContextDb(DbContextOptions<APDSContextDb> options)
+            : base(options)
+        {
+        }
         public DbSet<Test> Tests { get; set; }
         public DbSet<Respondent> Respondents { get; set; }
         public DbSet<Question> Questions { get; set; }
@@ -18,9 +23,9 @@ namespace APDS_018.Data
         public DbSet<ParamResult> ParamResults { get; set; }
         public DbSet<Result> Results { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=APDS_018Db;Trusted_Connection=True;");
+        
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

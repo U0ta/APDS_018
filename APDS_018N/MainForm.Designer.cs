@@ -28,12 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "MainForm";
+            menuStrip1 = new MenuStrip();
+            menuToolStripMenuItem = new ToolStripMenuItem();
+            testCreationModeToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { testCreationModeToolStripMenuItem });
+            menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            menuToolStripMenuItem.Size = new Size(50, 20);
+            menuToolStripMenuItem.Text = "Menu";
+            // 
+            // testCreationModeToolStripMenuItem
+            // 
+            testCreationModeToolStripMenuItem.Name = "testCreationModeToolStripMenuItem";
+            testCreationModeToolStripMenuItem.Size = new Size(180, 22);
+            testCreationModeToolStripMenuItem.Text = "Test creation mode";
+            testCreationModeToolStripMenuItem.Click += testCreationModeToolStripMenuItem_Click;
+            // 
+            // MainForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Name = "MainForm";
+            Text = "MainForm";
+            Load += MainForm_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem menuToolStripMenuItem;
+        private ToolStripMenuItem testCreationModeToolStripMenuItem;
     }
 }
