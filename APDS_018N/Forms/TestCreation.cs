@@ -46,33 +46,83 @@ namespace APDS_018N.Forms
                 Version = textBox8.Text
             };
             _testServices.AddTest(newTest);
+            MessageBox.Show(
+                    "Test created",
+                    "Success",
+                    MessageBoxButtons.OK      
+            );
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
-            textBox6.Text = "";
-            textBox7.Text = "";
-            textBox8.Text = "";
+            textBox1.Text = string.Empty;
+            textBox2.Text = string.Empty;
+            textBox3.Text = string.Empty;
+            textBox4.Text = string.Empty;
+            textBox5.Text = string.Empty;
+            textBox6.Text = string.Empty;
+            textBox7.Text = string.Empty;
+            textBox8.Text = string.Empty;
+            textBox9.Text = string.Empty;
+            textBox10.Text = string.Empty;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int checkId = Convert.ToInt32(textBox10.Text);
-            Test? test = _testServices.GetTestById(checkId);
-            textBox9.Text = $"Id: {test.Id}\n" +
-                $"NameTest: {test.NameTest}\n" +
-                $"Code: {test.Code} \n" +
-                $"RunFile: {test.RunFile} \n" +
-                $"Instruction: {test.Instruction} \n" +
-                $"Help: {test.Help}  \n" +
-                $"Developer: {test.Developer}  \n" +
-                $"Psycologist: {test.Psycologist}  \n" +
-                $"Version: {test.Version}  \n";
+            try
+            { 
+                int checkId = Convert.ToInt32(textBox10.Text);
+                Test? test = _testServices.GetTestById(checkId);
+                if (test != null)
+                {
+                    textBox9.Text = $"Id: {test.Id}{Environment.NewLine}" +
+                    $"NameTest: {test.NameTest}{Environment.NewLine}" +
+                    $"Code: {test.Code}{Environment.NewLine}" +
+                    $"RunFile: {test.RunFile}{Environment.NewLine}" +
+                    $"Instruction: {test.Instruction}{Environment.NewLine}" +
+                    $"Help: {test.Help}{Environment.NewLine}" +
+                    $"Developer: {test.Developer}{Environment.NewLine}" +
+                    $"Psycologist: {test.Psycologist}{Environment.NewLine}" +
+                    $"Version: {test.Version}{Environment.NewLine}";
+                }
+                else
+                {
+                    MessageBox.Show(
+                    "Invalid ID",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(
+                "Invalid ID type",
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+                );
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            long deleteId = 0;
+            try
+            {
+                deleteId = Convert.ToInt64(textBox10.Text);
+                _testServices.DeleteTest(deleteId);
+                MessageBox.Show("Test deleted", "Success", MessageBoxButtons.OK);
+                textBox9.Text = string.Empty;
+            } catch (Exception ex)
+            {
+                MessageBox.Show(
+                "Invalid ID type",
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+                );
+            }
         }
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace APDS_018.Business.Services
 {
-    internal class RespondentServices
+    public class RespondentServices
     {
         private readonly APDSContextDb _context;
 
@@ -13,6 +13,20 @@ namespace APDS_018.Business.Services
             _context = context;
         }
 
+        public void AddRespondent(Respondent respondent)
+        {
+            _context.Respondents.Add(respondent);
+            _context.SaveChanges();
+        }
+        public void DeleteRespondent(long id)
+        {
+            var respondent = _context.Respondents.Find(id);
+            if (respondent != null)
+            {
+                _context.Respondents.Remove(respondent);
+                _context.SaveChanges();
+            }
+        }
 
 
     }

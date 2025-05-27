@@ -34,7 +34,7 @@ namespace APDS_018.Business.Services
             _context.SaveChanges();  
         }
 
-        public void DeleteTest(int id)
+        public void DeleteTest(long id)
         {
             var test = _context.Tests.Find(id);
             if (test != null)

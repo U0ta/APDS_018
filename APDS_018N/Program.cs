@@ -25,9 +25,15 @@ namespace APDS_018N
                 options.UseSqlite("Data Source=..\\..\\..\\..\\APDS_018.Data\\APDS_018DB.db"));
 
             services.AddTransient<MainForm>();
+            //test
             services.AddTransient<TestCreation>();
             services.AddTransient<TestServices>();
+            //question
+            services.AddTransient<QuestionCreation>();
             services.AddTransient<QuestionServices>();
+            //respondent
+            services.AddTransient<RespondentForm>();
+            services.AddTransient<RespondentServices>();
             var serviceProvider = services.BuildServiceProvider();
 
             var mainForm = serviceProvider.GetRequiredService<MainForm>();
