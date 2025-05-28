@@ -34,6 +34,12 @@ namespace APDS_018N
             //respondent
             services.AddTransient<RespondentForm>();
             services.AddTransient<RespondentServices>();
+            //testing
+            services.AddTransient<PENForm>();
+            services.AddTransient<TestingServices>();
+            //other
+            services.AddTransient<ProtocolServices>();
+            services.AddTransient<ResultServices>();
             var serviceProvider = services.BuildServiceProvider();
 
             var mainForm = serviceProvider.GetRequiredService<MainForm>();

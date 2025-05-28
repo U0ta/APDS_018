@@ -17,16 +17,25 @@ namespace APDS_018N
         private readonly TestServices _testService;
         private readonly QuestionServices _questionService;
         private readonly RespondentServices _respondentService;
+        private readonly TestingServices _testingServices;
+        private readonly ProtocolServices _protocolServices;
+        private readonly ResultServices _resultServices;
 
         public MainForm(TestServices testService,
                         QuestionServices questionService,
-                        RespondentServices respondentService
+                        RespondentServices respondentService,
+                        TestingServices testingServices,
+                        ProtocolServices protocolServices,
+                        ResultServices resultServices
         )
         {
             InitializeComponent();
             _testService = testService;
             _questionService = questionService;
             _respondentService = respondentService;
+            _testingServices = testingServices;
+            _protocolServices = protocolServices;
+            _resultServices = resultServices;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -58,7 +67,7 @@ namespace APDS_018N
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var respondent = new RespondentForm(this, _respondentService, _questionService, "PEN");
+            var respondent = new RespondentForm(this, _respondentService, _questionService, "PEN", _testingServices, _resultServices, _protocolServices);
             respondent.Show();
             this.Hide();
         }

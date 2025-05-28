@@ -17,14 +17,22 @@ namespace APDS_018N.Forms
         private readonly MainForm _mainForm;
         private readonly RespondentServices _respondentServices;
         private readonly QuestionServices _questionServices;
+        private readonly TestingServices _testingServices;
+        private readonly ProtocolServices _protocolServices;
+        private readonly ResultServices _resultServices;
         private readonly string TestType;
-        public RespondentForm(MainForm mainForm, RespondentServices respondentServices,QuestionServices questionServices, string testType)
+        public RespondentForm(MainForm mainForm, RespondentServices respondentServices,
+            QuestionServices questionServices, string testType, TestingServices testingServices,
+            ResultServices resultServices, ProtocolServices protocolServices)
         {
             InitializeComponent();
             _mainForm = mainForm;
             _respondentServices = respondentServices;
             _questionServices = questionServices;
             TestType = testType;
+            _testingServices = testingServices;
+            _resultServices = resultServices;
+            _protocolServices = protocolServices;
         }
 
         private void RespondentForm_Load(object sender, EventArgs e)
@@ -57,7 +65,7 @@ namespace APDS_018N.Forms
                     MessageBoxButtons.OK
                 );
                 //
-                var penForm = new PENForm(_mainForm, _questionServices, TestType);
+                var penForm = new PENForm(_mainForm, _questionServices, TestType, newRespondent.Id, _testingServices, _resultServices, _protocolServices);
                 penForm.Show();
                 this.Close();
             } catch (Exception ex) {

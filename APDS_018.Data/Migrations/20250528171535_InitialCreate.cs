@@ -101,8 +101,8 @@ namespace APDS_018.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     RespondentId = table.Column<long>(type: "INTEGER", nullable: false),
                     TestId = table.Column<long>(type: "INTEGER", nullable: false),
-                    TestingDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    TestingTime = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    TestingDate = table.Column<string>(type: "TEXT", nullable: false),
+                    TestingTime = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -185,7 +185,7 @@ namespace APDS_018.Data.Migrations
                     TestingId = table.Column<long>(type: "INTEGER", nullable: false),
                     NumAnswer = table.Column<long>(type: "INTEGER", nullable: false),
                     NumQuestion = table.Column<long>(type: "INTEGER", nullable: false),
-                    TimeAnswer = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    TimeAnswer = table.Column<string>(type: "TEXT", nullable: false),
                     AnswerText = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>

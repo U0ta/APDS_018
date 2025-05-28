@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PENForm));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            checkedListBox1 = new CheckedListBox();
             label4 = new Label();
             button1 = new Button();
+            timer1 = new System.Windows.Forms.Timer(components);
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
             SuspendLayout();
             // 
             // label1
@@ -67,15 +70,6 @@
             label3.TabIndex = 2;
             label3.Text = "Question";
             // 
-            // checkedListBox1
-            // 
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Items.AddRange(new object[] { "Да", "Нет" });
-            checkedListBox1.Location = new Point(332, 274);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(120, 40);
-            checkedListBox1.TabIndex = 3;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -96,14 +90,42 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // timer1
+            // 
+            timer1.Interval = 1000;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(319, 279);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(39, 19);
+            radioButton1.TabIndex = 6;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Да";
+            radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(433, 279);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(45, 19);
+            radioButton2.TabIndex = 7;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Нет";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
             // PENForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(radioButton2);
+            Controls.Add(radioButton1);
             Controls.Add(button1);
             Controls.Add(label4);
-            Controls.Add(checkedListBox1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -120,8 +142,10 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private CheckedListBox checkedListBox1;
         private Label label4;
         private Button button1;
+        private System.Windows.Forms.Timer timer1;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
     }
 }

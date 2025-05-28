@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APDS_018.Data.Migrations
 {
     [DbContext(typeof(APDSContextDb))]
-    [Migration("20250525203311_InitialCreate")]
+    [Migration("20250528171535_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -98,7 +98,8 @@ namespace APDS_018.Data.Migrations
                     b.Property<long>("TestingId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("TimeAnswer")
+                    b.Property<string>("TimeAnswer")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -253,10 +254,12 @@ namespace APDS_018.Data.Migrations
                     b.Property<long>("TestId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("TestingDate")
+                    b.Property<string>("TestingDate")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("TestingTime")
+                    b.Property<string>("TestingTime")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

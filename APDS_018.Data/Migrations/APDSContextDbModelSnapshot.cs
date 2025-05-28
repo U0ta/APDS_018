@@ -95,7 +95,8 @@ namespace APDS_018.Data.Migrations
                     b.Property<long>("TestingId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("TimeAnswer")
+                    b.Property<string>("TimeAnswer")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -250,10 +251,12 @@ namespace APDS_018.Data.Migrations
                     b.Property<long>("TestId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("TestingDate")
+                    b.Property<string>("TestingDate")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("TestingTime")
+                    b.Property<string>("TestingTime")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

@@ -25,9 +25,8 @@ namespace APDS_018.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-        
         }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Test (1) → Question (N)
@@ -64,7 +63,8 @@ namespace APDS_018.Data
             modelBuilder.Entity<Protocol>()
                 .HasOne(p => p.Testing)
                 .WithMany(t => t.Protocols)
-                .HasForeignKey(p => p.TestingId);
+                .HasForeignKey(p => p.TestingId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // Question (1) → Protocol (N)
             modelBuilder.Entity<Protocol>()
@@ -82,7 +82,8 @@ namespace APDS_018.Data
             modelBuilder.Entity<Result>()
                 .HasOne(r => r.Testing)
                 .WithMany(t => t.Results)
-                .HasForeignKey(r => r.TestingId);
+                .HasForeignKey(r => r.TestingId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // ParamResult (1) → Result (N)
             modelBuilder.Entity<Result>()
