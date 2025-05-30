@@ -74,7 +74,7 @@ namespace APDS_018N.Forms
             if (radioButton1.Checked || radioButton2.Checked)
             {
                 isRbActivated = true;
-
+                secondsPassed = 0;
             }
             if (radioButton1.Checked)
             {
@@ -252,7 +252,7 @@ namespace APDS_018N.Forms
                         NumQuestion = _questionServices.GetQuestionById(Id).NumQuestion,
                         TimeAnswer = formattedTime,
                         AnswerText = rbText,
-                        NumAnswer = 1
+                        NumAnswer = rbText == "Да" ? 1 : 2
                     };
                     _protocolServices.AddProtocol(protocol);
                 }
@@ -280,6 +280,7 @@ namespace APDS_018N.Forms
 
         public void PENForm_Load(object sender, EventArgs e)
         {
+            timer1.Start();
             //Testing
             if (TestType == "PEN") { TestId = 1; }
             var testing = new Testing
