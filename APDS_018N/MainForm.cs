@@ -57,7 +57,9 @@ namespace APDS_018N
 
         private void questionCreateModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var questioncreation = new QuestionCreation(this, _questionService);
+            questioncreation.Show();
+            this.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -70,6 +72,19 @@ namespace APDS_018N
             var respondent = new RespondentForm(this, _respondentService, _questionService, "PEN", _testingServices, _resultServices, _protocolServices);
             respondent.Show();
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var respondent = new RespondentForm(this, _respondentService, _questionService, "RBT", _testingServices, _resultServices, _protocolServices);
+            respondent.Show();
+            this.Hide();
+        }
+
+        private void btnPsychologistMode_Click(object sender, EventArgs e)
+        {
+            var loginForm = new PsychologistLoginForm( _testService, _testingServices, _respondentService, _resultServices);
+            loginForm.ShowDialog();
         }
     }
 }

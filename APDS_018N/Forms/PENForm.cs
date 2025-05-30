@@ -58,14 +58,12 @@ namespace APDS_018N.Forms
             _testingServices = testingServices;
             _resultServices = resultServices;
             _protocolServices = protocolServices;
+            FormBorderStyle = FormBorderStyle.None;
         }
 
         private int secondsPassed = 0;
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            secondsPassed++;
-        }
+
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,7 +72,6 @@ namespace APDS_018N.Forms
             if (radioButton1.Checked || radioButton2.Checked)
             {
                 isRbActivated = true;
-                secondsPassed = 0;
             }
             if (radioButton1.Checked)
             {
@@ -84,7 +81,6 @@ namespace APDS_018N.Forms
             {
                 rbText = radioButton2.Text;
             }
-            if (Id == 1) { timer1.Start(); }
             //
             if (l_yes > 10)
             {
@@ -299,6 +295,12 @@ namespace APDS_018N.Forms
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            secondsPassed++;
+            labelTimer.Text = $"{secondsPassed / 60:00}:{secondsPassed % 60:00}";
         }
     }
 }

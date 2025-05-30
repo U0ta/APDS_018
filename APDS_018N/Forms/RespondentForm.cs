@@ -33,11 +33,12 @@ namespace APDS_018N.Forms
             _testingServices = testingServices;
             _resultServices = resultServices;
             _protocolServices = protocolServices;
+
         }
 
         private void RespondentForm_Load(object sender, EventArgs e)
         {
-            comboBox1.SelectedItem = TestType;
+            comboBox1.Text = "Male";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,17 +66,30 @@ namespace APDS_018N.Forms
                     MessageBoxButtons.OK
                 );
                 //
-                var penForm = new PENForm(_mainForm, _questionServices, TestType, newRespondent.Id, _testingServices, _resultServices, _protocolServices);
-                penForm.Show();
+                if (TestType == "PEN")
+                {
+                    var penForm = new PENForm(_mainForm, _questionServices, TestType, newRespondent.Id,
+                                       _testingServices, _resultServices, _protocolServices);
+                    penForm.Show();
+                }
+                else
+                {
+                    var schulteForm = new SchulteFormN(_mainForm, _questionServices, TestType, newRespondent.Id,
+                                       _testingServices, _resultServices, _protocolServices);
+                    schulteForm.Show();
+                }
                 this.Close();
             } catch (Exception ex) {
                 MessageBox.Show(
-                    "Invalid values",
+                    $"Invalid values" +
+                    $"{ex}",
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
             }
         }
+
+
     }
 }

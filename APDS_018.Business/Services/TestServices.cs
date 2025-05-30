@@ -21,7 +21,7 @@ namespace APDS_018.Business.Services
                 .ToList();                 
         }
 
-        public Test? GetTestById(int id)
+        public Test? GetTestById(long id)
         {
             return _context.Tests
                 .Include(t => t.Questions)

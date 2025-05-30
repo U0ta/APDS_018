@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APDS_018.Business", "APDS_0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APDS_018N", "APDS_018N\APDS_018N.csproj", "{6DEBAFE5-73C1-4340-85CF-90F614F95C83}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "APDS_018.Setup", "APDS_018.Setup\APDS_018.Setup.vdproj", "{87EA7739-2FE3-42B6-A13A-659722CC8892}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,8 @@ Global
 		{6DEBAFE5-73C1-4340-85CF-90F614F95C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DEBAFE5-73C1-4340-85CF-90F614F95C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DEBAFE5-73C1-4340-85CF-90F614F95C83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87EA7739-2FE3-42B6-A13A-659722CC8892}.Debug|Any CPU.ActiveCfg = Debug
+		{87EA7739-2FE3-42B6-A13A-659722CC8892}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

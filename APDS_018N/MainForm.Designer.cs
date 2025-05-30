@@ -36,6 +36,7 @@
             button1 = new Button();
             button2 = new Button();
             label1 = new Label();
+            btnPsychologistMode = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -89,6 +90,7 @@
             button2.TabIndex = 2;
             button2.Text = "Red and black Schulte table";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label1
             // 
@@ -102,11 +104,23 @@
             label1.Text = "Automated system of psychodiagnostics\r\nAuthor: Smirnov M.A., student of group 4503\r\nVariant: 18";
             label1.Click += label1_Click;
             // 
+            // btnPsychologistMode
+            // 
+            btnPsychologistMode.Anchor = AnchorStyles.Bottom;
+            btnPsychologistMode.Location = new Point(268, 321);
+            btnPsychologistMode.Name = "btnPsychologistMode";
+            btnPsychologistMode.Size = new Size(252, 27);
+            btnPsychologistMode.TabIndex = 4;
+            btnPsychologistMode.Text = "Psychologist mode";
+            btnPsychologistMode.UseVisualStyleBackColor = true;
+            btnPsychologistMode.Click += btnPsychologistMode_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnPsychologistMode);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -131,5 +145,6 @@
         private Button button1;
         private Button button2;
         private Label label1;
+        private Button btnPsychologistMode;
     }
 }

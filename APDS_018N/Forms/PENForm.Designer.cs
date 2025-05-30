@@ -38,6 +38,7 @@
             timer1 = new System.Windows.Forms.Timer(components);
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
+            labelTimer = new Label();
             SuspendLayout();
             // 
             // label1
@@ -93,9 +94,11 @@
             // timer1
             // 
             timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick_1;
             // 
             // radioButton1
             // 
+            radioButton1.Anchor = AnchorStyles.Bottom;
             radioButton1.AutoSize = true;
             radioButton1.Location = new Point(319, 279);
             radioButton1.Name = "radioButton1";
@@ -108,6 +111,7 @@
             // 
             // radioButton2
             // 
+            radioButton2.Anchor = AnchorStyles.Bottom;
             radioButton2.AutoSize = true;
             radioButton2.Location = new Point(433, 279);
             radioButton2.Name = "radioButton2";
@@ -117,11 +121,21 @@
             radioButton2.Text = "Нет";
             radioButton2.UseVisualStyleBackColor = true;
             // 
+            // labelTimer
+            // 
+            labelTimer.Anchor = AnchorStyles.Bottom;
+            labelTimer.AutoSize = true;
+            labelTimer.Location = new Point(378, 313);
+            labelTimer.Name = "labelTimer";
+            labelTimer.Size = new Size(0, 15);
+            labelTimer.TabIndex = 8;
+            // 
             // PENForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(labelTimer);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
             Controls.Add(button1);
@@ -147,5 +161,6 @@
         private System.Windows.Forms.Timer timer1;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
+        private Label labelTimer;
     }
 }

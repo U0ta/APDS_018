@@ -22,7 +22,7 @@ namespace APDS_018N
             var services = new ServiceCollection();
 
             services.AddDbContext<APDSContextDb>(options =>
-                options.UseSqlite("Data Source=..\\..\\..\\..\\APDS_018.Data\\APDS_018DB.db"));
+                options.UseSqlite("Data Source=.\\DataBase\\APDS_018DB.db"));
 
             services.AddTransient<MainForm>();
             //test
@@ -38,8 +38,10 @@ namespace APDS_018N
             services.AddTransient<PENForm>();
             services.AddTransient<TestingServices>();
             //other
+            services.AddTransient<SchulteFormN>();
             services.AddTransient<ProtocolServices>();
             services.AddTransient<ResultServices>();
+            services.AddTransient<PsychologistLoginForm>();
             var serviceProvider = services.BuildServiceProvider();
 
             var mainForm = serviceProvider.GetRequiredService<MainForm>();

@@ -27,7 +27,19 @@ namespace APDS_018.Business.Services
                 _context.SaveChanges();
             }
         }
-
+        public void UpdateRespondent(Respondent respondent)
+        {
+            var existingRespondent = _context.Respondents.Find(respondent.Id);
+            if (existingRespondent != null)
+            {
+                _context.Entry(existingRespondent).CurrentValues.SetValues(respondent);
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new ArgumentException("Respondent not found");
+            }
+        }
 
     }
 }

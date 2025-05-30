@@ -26,5 +26,21 @@ namespace APDS_018.Business.Services
                 _context.SaveChanges();
             }
         }
+
+        public List<Testing> GetTestingsByTest(long testId)
+        {
+            return _context.Testings
+                .Include(t => t.Respondent)
+                .Where(t => t.TestId == testId)
+                .ToList();
+        }
+
+        public List<Testing> GetTestingsByRespondent(long respondentId)
+        {
+            return _context.Testings
+                .Include(t => t.Test)
+                .Where(t => t.RespondentId == respondentId)
+                .ToList();
+        }
     }
 }
